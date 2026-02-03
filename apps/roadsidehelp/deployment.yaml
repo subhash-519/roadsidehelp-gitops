@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: roadsidehelp
+  namespace: roadsidehelp
+  labels:
+    app: roadsidehelp
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: roadsidehelp
+  template:
+    metadata:
+      labels:
+        app: roadsidehelp
+    spec:
+      containers:
+        - name: roadsidehelp
+          image: subhashdocker519/roadsidehelp:1.0.0
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - secretRef:
+                name: roadsidehelp-secret

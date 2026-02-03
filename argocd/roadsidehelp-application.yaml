@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: roadsidehelp
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/subhash-519/roadsidehelp-gitops.git
+    targetRevision: main
+    path: apps/roadsidehelp
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: roadsidehelp
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
