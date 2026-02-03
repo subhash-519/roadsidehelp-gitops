@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: roadsidehelp
-          image: subhashdocker519/roadsidehelp:1.0.0
+          image: subhashdocker519/roadsidehelp:1.0.1
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8080
